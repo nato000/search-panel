@@ -1,0 +1,132 @@
+@font-face {
+   font-family: "borda";
+   src: url("/font/Borda.ttf");
+}
+
+* {
+   box-sizing: border-box;
+}
+
+body {
+   margin: 0;
+   background-color: rgb(66, 66, 66);
+}
+
+.app {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+}
+
+.search {
+   background-color: #1c1c1e;
+   width: 25px;
+   padding: 0 20px 0 20px;
+   height: 40px;
+   border-radius: 100px;
+   display: flex;
+   align-items: center;
+   position: relative;
+   transition: 0.3s ease-in-out;
+}
+
+.search--active {
+   width: 220px;
+}
+
+.search__border-left,
+.search__border-right {
+   position: absolute;
+   height: 40px;
+   width: 22px;
+   top: 0;
+   bottom: 0;
+   z-index: -1;
+   box-shadow: 0px 0px 1px 0px #f79238;
+   transition: 0.3s ease-in-out;
+}
+
+.search__border-left {
+   background-color: #f79238;
+   left: -2px;
+   border-bottom-left-radius: 30px;
+   border-top-left-radius: 30px;
+}
+
+.search__border-right {
+   background-image: linear-gradient(#f79238, #85c2d7);
+   right: -2px;
+   border-bottom-right-radius: 30px;
+   border-top-right-radius: 30px;
+}
+
+.search__pannel {
+   display: flex;
+   overflow: hidden;
+}
+
+.search__input--disabled {
+   visibility: hidden;
+}
+
+.search__input--active {
+   visibility: visible;
+   background-color: transparent;
+   border: none;
+   max-width: 130px;
+   padding: 10px 0;
+   font-family: borda;
+   color: rgb(180, 180, 180);
+   transition: 0.3s ease-in-out;
+}
+
+.search__input--active::placeholder {
+   font-family: borda;
+}
+
+.search__input--active:focus {
+   outline: none;
+}
+
+.search__input--active:focus ~ .search__border-left {
+   box-shadow: 0px 0px 9px 0px #ffac64;
+}
+
+.search__btn {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   border: none;
+   background-color: transparent;
+   width: 20px;
+   height: 20px;
+   border-radius: 30px;
+   transform: translate(-55%, -55%);
+   padding: 0;
+   transition: 0.3s ease-in-out;
+}
+
+.search__btn--active {
+   left: 85%;
+}
+
+.search__btn:hover {
+   cursor: pointer;
+}
+
+.search__btn:hover ~ .search__border-left {
+   box-shadow: 0px 0px 5px 0px #f79238;
+}
+
+.search__btn:hover ~ .search__border-right {
+   box-shadow: 0px 0px 5px 0px #f79238;
+}
+
+.search__btn:focus {
+   outline: none;
+}
+
+.search__btn:focus ~ .search__border-right {
+   box-shadow: 0px 0px 9px 0px #ffac64;
+}
